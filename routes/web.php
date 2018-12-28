@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+# Admin routes
+include_once "Admin/web.php";
+
+
+# Front routes
+include_once "Client/web.php";

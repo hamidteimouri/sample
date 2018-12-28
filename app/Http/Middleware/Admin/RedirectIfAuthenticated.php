@@ -13,9 +13,10 @@ class RedirectIfAuthenticated
      * @param  \Closure $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = 'admin')
+    public function handle($request, Closure $next)
     {
-        if (\Auth::guard($guard)->check()) {
+        $guard = 'admin';
+        if (auth()->guard($guard)->check()) {
             return redirect()->route('admin.home.index')->with('info', 'شما به پنل مدیریت هدایت شدید.');
         }
 
