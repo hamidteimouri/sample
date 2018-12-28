@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Traits;
+
 use \Morilog\Jalali\Jalalian;
 
 trait GeneralTrait
@@ -59,16 +60,6 @@ trait GeneralTrait
 
     # Accessor + traits
 
-    # title
-    public function getTitleForUrlAttribute()
-    {
-        return removeSpecialChar($this->title);
-    }
-
-    public function getTitleEnForUrlAttribute()
-    {
-        return removeSpecialChar($this->title_en);
-    }
 
     # date
     public function getCreatedAtInPersianAttribute()
@@ -106,15 +97,16 @@ trait GeneralTrait
         return Jalalian::forge($this->married_date)->format('Y/m/d');
     }
 
+    public function getBirthdayInPersianNumberAttribute()
+    {
+        return Jalalian::forge($this->birthday)->format('Y/m/d');
+    }
+
     # time
     public function getTimeInPersianAttribute()
     {
         return Jalalian::forge($this->created_at)->format('H:i');
     }
 
-    public function getBirthdayInPersianNumberAttribute()
-    {
-        return Jalalian::forge($this->birthday)->format('Y/m/d');
-    }
 
 }

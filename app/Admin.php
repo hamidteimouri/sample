@@ -2,13 +2,14 @@
 
 namespace App;
 
+use App\Traits\GeneralTrait;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Admin extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable,GeneralTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -39,5 +40,13 @@ class Admin extends Authenticatable
     public function setEmailAttribute($value)
     {
         $this->attributes['email'] = strtolower($value);
+    }
+
+
+    # Accessor
+
+    public function getFullNameAttribute()
+    {
+        return $this->name . ' ' . $this->family;
     }
 }
