@@ -5,8 +5,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::get('/', ['as' => 'front.url.method', 'uses' => 'HomeController@index']);
 
 });
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin\Auth'], function () {
 
-    Route::get('/login', ['as' => 'admin.auth.login_form', 'uses' => 'HomeController@index']);
+    Route::get('/login', ['as' => 'admin.auth.login_form', 'uses' => 'LoginController@showLoginForm']);
+    Route::post('/login', ['as' => 'admin.auth.login', 'uses' => 'LoginController@login']);
 
 });
