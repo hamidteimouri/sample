@@ -8,7 +8,7 @@
 
         <link rel="shortcut icon" href="/assets/admin/images/favicon_1.ico">
 
-        <title>قالب اچ تی ام ال مدیریتی نادیا</title>
+        <title>@yield("MainTitle",'ورود به پنل مدیریت')</title>
 
         <link href="/assets/admin/css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css" />
         <link href="/assets/admin/css/core.css" rel="stylesheet" type="text/css" />
@@ -43,13 +43,13 @@
 
                 <div class="form-group ">
                     <div class="col-xs-12">
-                        <input class="form-control" type="text" required="" placeholder="نام کاربری">
+                        <input class="form-control" name="email" type="text" required="" placeholder="نام کاربری">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <input class="form-control" type="password" required="" placeholder="پسورد">
+                        <input class="form-control" name="password" type="password" required="" placeholder="رمز عبور">
                     </div>
                 </div>
 
